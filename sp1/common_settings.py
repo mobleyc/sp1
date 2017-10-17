@@ -1,6 +1,6 @@
 HOSTNAME = "sp1.localhost"
 
-IDP_META_PATH = "sp1/idp_metadata.xml"
+IDP_META_PATH = "sp1/idp-metadata.xml"
 
 #used both for signing and encryption
 SP_KEY_PATH = "sp1/sp1_key.key"

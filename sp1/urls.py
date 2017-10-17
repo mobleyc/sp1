@@ -18,11 +18,11 @@ from django.contrib import admin
 from sp1 import views
 
 urlpatterns = [
-	url(r'^admin/', include(admin.site.urls)),
+    url(r'^admin/', include(admin.site.urls)),
 
-	url(r'^saml2/', include('djangosaml2.urls')),
-	url(r'^test/', 'djangosaml2.views.echo_attributes'),
+    url(r'^saml2/', include('djangosaml2.urls')),
+    url(r'^test/', 'djangosaml2.views.echo_attributes'),
 
-	url(r'^$', views.view_profile, name='home'),
-	url(r'^accounts/profile/', views.view_profile, name='view_profile'),
+    url(r'^$', views.view_profile, name='home'),
+    url(r'^accounts/profile/', views.view_profile, name='view_profile'),
 ]
