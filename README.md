@@ -2,7 +2,7 @@
 
 This is basic django website based on djangosaml2 module to test Shibboleth SSO. It contains only single page with login button.
 
-##Installation
+## Installation
 1. Clone sp1:
   ```
 cd ~
@@ -45,7 +45,7 @@ python manage.py migrate
 
 8. Give write permissions to **sp1/www_data** directory (used for sqlite db and django_request.log) for your webserver user.
 
-##How it works
+## How it works
 1. Go to sp1.localhost and click 'login'
 2. You will be redirected to idp.localhost, where you should enter login/password
 3. IDP redirects you back to SP, where your username is displayed
@@ -53,7 +53,7 @@ python manage.py migrate
 For more details on how to deploy Shibboleth IDP and Django SP refer to [this post](http://codeinpython.blogspot.com/2015/11/how-to-setup-shibboleth-identity.html).
 
 
-##Notes
+## Notes
 1. The latest version of djangosaml2 (0.16.10) has a bug, which has been fixed, but is not in a release yet. As a result
 we're pulling from github master for now. This dependency should be update in requirements.txt when a new release is
 pushed, containing the fix. The bug details are [here](https://github.com/knaperek/djangosaml2/pull/105)
