@@ -7,6 +7,14 @@ from common_settings import *
 
 
 def get_saml_config(ROOT_URL, BASEDIR):
+    """
+    Build pysaml2 configuration options for a SAML service provider. See pysaml2 configuration docs for more
+    information: http://pysaml2.readthedocs.io/en/stable/howto/config.html.
+
+    :param ROOT_URL: Fully qualified root url, e.g. http://sp1.localhost or http://sp1.localhost:8000
+    :param BASEDIR: Base directory of the Django project
+    :return: pysaml2 configuration options
+    """
     return {
         # full path to the xmlsec1 binary programm
         # 'xmlsec_binary': '/usr/bin/xmlsec1',
@@ -49,11 +57,13 @@ def get_saml_config(ROOT_URL, BASEDIR):
             },
         },
 
-        # where the remote metadata is stored
+        # Where the remote metadata is stored. This can be local or remote, see:
+        # http://pysaml2.readthedocs.io/en/stable/howto/config.html#metadata
         'metadata': {
             'local': [path.join(BASEDIR, IDP_META_PATH)],
         },
 
+        # TODO: Disable this in production
         # set to 1 to output debugging information
         'debug': 1,
         'timeslack': 5000,
@@ -63,5 +73,5 @@ def get_saml_config(ROOT_URL, BASEDIR):
         'key_file': path.join(BASEDIR, SP_KEY_PATH),  # private part
         'cert_file': path.join(BASEDIR, SP_CRT_PATH),  # public part
 
-        'valid_for': 24,  # how long is our metadata valid
+        'valid_for': 24,  # how long is our metadata valid, in hours
     }

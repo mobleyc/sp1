@@ -16,6 +16,8 @@ if DEBUG:
 else:
     ROOT_URL = "http://" + HOSTNAME
 
+# By default, djangosaml2 reads the pysaml2 configuration options from the SAML_CONFIG setting. These settings can also
+# be loaded from a database. See: https://github.com/knaperek/djangosaml2#custom-and-dynamic-configuration-loading.
 SAML_CONFIG = get_saml_config(ROOT_URL, BASE_DIR)
 
 # SECURITY WARNING: keep the secret key used in production secret!
