@@ -20,6 +20,7 @@ def get_saml_config(ROOT_URL, BASEDIR):
         # 'xmlsec_binary': '/usr/bin/xmlsec1',
         'xmlsec_binary': '/usr/local/bin/xmlsec1',
 
+        #TODO: Consider making the entity id static, not dynamic. Otherwise changing ports could break
         # your entity id, usually your subdomain plus the url to the metadata view
         'entityid': urljoin(ROOT_URL, "/saml2/metadata/"),
 
@@ -37,6 +38,9 @@ def get_saml_config(ROOT_URL, BASEDIR):
                 "authn_requests_signed": "true",
                 'name': 'Federated Django sample SP',
                 'name_id_format': saml.NAMEID_FORMAT_TRANSIENT,
+                # TODO: Review this for production. If you run on different ports, the ROOT_URL will not relfect
+                # this. Ideally ROOT_URL would be built dynamically once the site is loaded, instead of the way
+                # it's currently created in settings.py
                 'endpoints': {
                     # url and binding to the assetion consumer service view
                     # do not change the binding or service name
