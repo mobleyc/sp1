@@ -58,6 +58,5 @@ For more details on how to deploy Shibboleth IDP and Django SP refer to [this po
 we're pulling from github master for now. This dependency should be update in **requirements.txt** when a new release is
 pushed, containing the fix. The bug details are [here](https://github.com/knaperek/djangosaml2/pull/105)
 
-2017-10-18 15:23:52,598 [DEBUG] djangosaml2: attributes: {'eduPersonPrimaryOrgUnitDN': [u'ou=hr,dc=example,dc=com'], 'eduPersonPrincipalName': [u'bobby@example.com'], 'eduPersonOrgUnitDN': [u'ou=hr,dc=example,dc=com', u'ou=people,dc=example,dc=com']}
-2017-10-18 15:23:52,598 [DEBUG] djangosaml2: attribute_mapping: {'uid': ('username',)}
+
 
